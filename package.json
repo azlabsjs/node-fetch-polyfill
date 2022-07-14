@@ -1,0 +1,55 @@
+{
+    "version": "0.1.0",
+    "license": "MIT",
+    "type": "module",
+    "main": "./dist/index.js",
+    "files": [
+        "dist/**/*"
+    ],
+    "engines": {
+        "node": ">=14"
+    },
+    "scripts": {
+        "prepare": "git config core.hookspath .githooks",
+        "size": "size-limit",
+        "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+        "build": "rm -rf ./dist && mkdir ./dist/ && ./node_modules/.bin/terser ./src/index.js --compress --module -o ./dist/index.js"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "eslint"
+        }
+    },
+    "prettier": {
+        "printWidth": 80,
+        "semi": true,
+        "singleQuote": true,
+        "trailingComma": "es5"
+    },
+    "name": "@azlabsjs/node-fetch-polyfill",
+    "author": "azandrew-sidoine",
+    "size-limit": [
+        {
+            "path": "src/index.js",
+            "limit": "10 KB"
+        }
+    ],
+    "devDependencies": {
+        "@size-limit/preset-small-lib": "^7.0.8",
+        "husky": "^8.0.1",
+        "jest": "^28.1.3",
+        "size-limit": "^7.0.8",
+        "terser": "^5.14.2"
+    },
+    "dependencies": {
+        "abort-controller": "^3.0.0",
+        "node-fetch": "^3.2.8"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/@azlabsjs"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/azlabsjs/node-fetch-polyfill.git"
+    }
+}

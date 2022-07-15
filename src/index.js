@@ -4,7 +4,7 @@ import nodeFetch, {
   Response,
   Blob,
   FormData,
-  File,
+  File
 } from 'node-fetch';
 import { AbortController } from 'abort-controller';
 
